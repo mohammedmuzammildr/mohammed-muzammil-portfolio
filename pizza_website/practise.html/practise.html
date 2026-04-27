@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #carousel-container {
+      width: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #carousel img {
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #prev-button {
+      left: 10px;
+    }
+
+    #next-button {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="carousel-container">
+    <div id="carousel">
+      <img src="image1.jpg" alt="Image 1">
+      <img src="image2.jpg" alt="Image 2">
+      <img src="image3.jpg" alt="Image 3">
+    </div>
+    <button id="prev-button" class="carousel-button">&lt;</button>
+    <button id="next-button" class="carousel-button">&gt;</button>
+  </div>
+
+  <script>
+    const carousel = document.getElementById("carousel");
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+    const images = carousel.querySelectorAll("img");
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 300}px)`;
+    }
+
+    prevButton.addEventListener("click", () => {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      updateCarousel();
+    });
+
+    nextButton.addEventListener("click", () => {
+      currentIndex = Math.min(currentIndex + 1, images.length - 1);
+      updateCarousel();
+    });
+
+    updateCarousel(); // Initial setup
+  </script>
+</body>
+</html>
+</html>

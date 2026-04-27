@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div class="icons">
+        <a href="#">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Services</a> 
+        <a href="#Contact">Contact</a>
+        <button onclick="toggleDarkMode()"><i class="fa-solid fa-circle-half-stroke"></i></button>
+     </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="pizza.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="pizzahome.css">
+</head>
+<body>
+    <h1 class="pizzahead">THE PIZZA Co. <img class="pizzaimg"    src="pizza logo.png" alt="..." width="50px " height="50px"></h1> 
+    <h3 class="pizzasub">Where Every Slice is a Masterpiece</h3>
+    <p>every pizza starts with our hand-tossed dough and a rich, slow-simmered sauce made from our secret recipe. Topped with premium cheese and the freshest ingredients, each pie is baked to golden perfection delivering bold flavor and that 'just one more slice' feeling every time."</p>
+ 
+    <a href="#typeofpizzas" class="order"> Order now</a>
+
+    <div class="search-container">
+     <input type="text" id="searchInput" placeholder="grab the pizza here" onkeyup="searchpizza()">
+    </div>
+
+    <section id="typeofpizzas"></section>
+    <h2>select your favorite pizza and enjoy your day</h2>
+
+    <div class="pizzas" data-name="Truffle Mushroom" data-aos="fade-up"data-aos-duration="1500"data-aos-delay="200">
+        <img class="pizza-img"  src="pizza1.jpg" alt="...">
+        <h3>Truffle Mushroom</h3>
+        <p class="price">299</p>
+        <button class="Buy"   style="width: 70%;">Buy Now</button>
+      </div>
+
+      <div class="pizzas" data-name="Pesto Primavera"data-aos="fade-up" data-aos-delay="300"data-aos-duration="1500">
+          <img  class="pizza-img" src="pizza2.jpg" alt="..">
+          <h3>Pesto Primavera</h3>
+          <p class="price">399</p>
+          <button class="Buy" style="width: 70%;">Buy Now</button>
+      </div>
+
+      <div class="pizzas" data-name="Mexican Fiesta"data-aos="fade-up" data-aos-delay="400"data-aos-duration="1500">
+          <img  class="pizza-img" src="pizza3.jpg" alt="..">
+          <h3>Mexican Fiesta</h3>
+          <p class="price">449</p>
+          <button class="Buy" style="width: 70%;">Buy Now</button>
+      </div>
+
+      <div class="pizzas" data-name="Zesty Zucchini"data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+          <img  class="pizza-img" src="pizza4.jpg" alt="..">
+          <h3>Zesty Zucchini</h3>
+          <p class="price">499</p>
+          <button class="Buy"  style="width: 70%;">Buy Now</button>
+      </div>
+
+      <section id="Services"></section>
+    <h2>we provide our best food services</h2>
+    <a href="#."><i class="fa-solid fa-utensils custom-icon" data-aos="fade-up" data-aos-duration="1500"></i></a>
+    <p class="foodorder"> Your Orders</p>
+
+
+    <section id="Contact" data-aos="fade-up" data-aos-duration="1500">
+        <h2>Contact Us</h2>
+        <form id="pizzaContactForm" class="contact-form">
+            <input type="hidden" name="access_key" value="4af58ac3-3419-49e1-b40f-8e67c49f0f20">
+            <input type="hidden" name="subject" value="New Inquiry from Pizza Website">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Pizza Detail Modal -->
+    <div id="pizzaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <img id="modalImg" src="" alt="Pizza">
+                <div class="modal-info">
+                    <h2 id="modalTitle">Pizza Name</h2>
+                    <p id="modalPrice" class="price">Price</p>
+                    <p id="modalDesc">Detailed description of the pizza.</p>
+                    <button id="modalBuyBtn" class="Buy" style="width: 100%;">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="pizza.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  const pizzaForm = document.getElementById('pizzaContactForm');
+  if(pizzaForm) {
+      pizzaForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const btn = pizzaForm.querySelector('button');
+          const originalText = btn.textContent;
+          btn.textContent = 'Sending...';
+          
+          const formData = new FormData(pizzaForm);
+          const object = Object.fromEntries(formData);
+          const json = JSON.stringify(object);
+
+          fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+              },
+              body: json
+          })
+          .then(async (response) => {
+              if (response.status == 200) {
+                  btn.textContent = 'Message Sent!';
+                  btn.style.backgroundColor = '#10b981';
+                  btn.style.color = 'white';
+                  pizzaForm.reset();
+              } else {
+                  btn.textContent = 'Error!';
+              }
+          })
+          .catch(error => {
+              btn.textContent = 'Error!';
+          })
+          .then(() => {
+              setTimeout(() => {
+                  btn.textContent = originalText;
+                  btn.style.backgroundColor = 'rgb(243, 170, 35)';
+                  btn.style.color = 'black';
+              }, 4000);
+          });
+      });
+  }
+</script>
+</body>
+</html>

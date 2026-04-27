@@ -1,0 +1,79 @@
+body{
+    background-color: black;
+}
+.pizzas{
+    width: 0000180px;
+    height: 300px;
+    display: inline-block;
+    padding: 5%;
+    background-color: rgb(61, 61, 61);  border-radius: 15px;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 10px;
+    margin-right: 1%;
+    opacity: 90%;
+    color: antiquewhite;
+    
+     
+}
+.pizza-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 5%;
+    object-fit: cover;
+    transition: 0.2s ease;
+    cursor: pointer;
+    
+}
+.price{
+    color: rgb(228, 134, 12);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 180%;
+}
+.dark-mode .pizzas{
+    background-color: rgb(253, 229, 197);
+}
+.Buy{
+    border-radius: 50%;
+    size: 30%;
+    background-color: rgb(226, 135, 15);
+}
+.search-container{
+    text-align: center;
+    margin-top: 20%;
+}
+#searchInput {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+.pizza-img:hover{
+    transform: scale(1.1)rotate(8deg);
+}
+[data-aos]{
+    transition: 0.5 ease-in;
+}
+.orders{
+    width: 600px;
+    height: 800px;
+    text-align: center;
+}
+.custom-icon{
+    padding: 20vh;
+    font-size: 800%;
+    display:flex;
+    justify-content: center;
+    color: rgb(201, 94, 18);
+}
+.foodorder{
+    font-size: 50px;
+    color: rgb(248, 228, 201);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5vh;
+
+}

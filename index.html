@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Muzammil D R | Portfolio</title>
+    <meta name="description" content="Portfolio of Mohammed Muzammil D R, Python Full Stack Developer and Data Analyst.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">Muzammil<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex; align-items:center; gap:1rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="moon-icon">🌙 Dark</span>
+                    <span class="sun-icon">☀️ Light</span>
+                </button>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero hidden">
+            <!-- Animated techy canvas background -->
+            <canvas id="heroCanvas"></canvas>
+
+            <div class="hero-content">
+                <h2 class="greeting">Hello, I'm</h2>
+                <h1 class="name">Mohammed Muzammil D R</h1>
+                <h3 class="role">CSE Graduate &amp; <span class="highlight">Full Stack Developer</span><span class="typing-cursor"></span></h3>
+                <p class="summary">
+                    Skilled in Python, MySQL, and full-stack development with a keen interest in data analysis, software development, and web technologies. Passionate about solving problems and building innovative solutions.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+                <div class="hero-socials">
+                    <span>Find me on</span>
+                    <a href="https://linkedin.com/in/mohammed-muzammil-9a1a00332" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com/_.muxzu._" target="_blank" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/919633303070" target="_blank" class="social-icon" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:mohammedmuzammildarkas@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Internship</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">BE</div>
+                        <div class="stat-label">Degree</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section id="about" class="about hidden">
+            <h2 class="section-title">Education & <span>Experience</span></h2>
+            <div class="about-cards-container">
+                <div class="about-card glass-card">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Bachelor of Engineering (CS)</h4>
+                    <p class="card-org">Bearys Institute of Technology</p>
+                    <p class="card-date">2020 – 2024 | CGPA: 6.7</p>
+                    <p class="card-desc">Comprehensive study in computer science fundamentals, software engineering, and data analysis.</p>
+                </div>
+                
+                <div class="about-card glass-card">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Python Full Stack Developer</h4>
+                    <p class="card-org">IPCS Global, Mangalore</p>
+                    <p class="card-date">Expected: Jun 2025</p>
+                    <p class="card-desc">Professional certification program covering end-to-end web development using Python and modern frameworks.</p>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                    <h4>Data Analyst Intern</h4>
+                    <p class="card-org">Zephyrs Technologies Pvt Ltd</p>
+                    <p class="card-date">Aug 2023 – Sep 2023</p>
+                    <p class="card-desc">Data cleaning, manipulation, visualization using Python, and designing data models for business insights.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills hidden">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-container">
+                <div class="skill-category glass-card">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span><i class="devicon-python-plain colored"></i> Python</span>
+                        <span><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+                        <span><i class="devicon-cplusplus-plain colored"></i> C++</span>
+                        <span><i class="devicon-java-plain colored"></i> Java</span>
+                        <span><i class="devicon-mysql-plain colored"></i> MySQL</span>
+                        <span><i class="devicon-html5-plain colored"></i> HTML</span>
+                        <span><i class="devicon-css3-plain colored"></i> CSS</span>
+                        <span><i class="devicon-django-plain colored"></i> Django</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <h3>Technical</h3>
+                    <div class="skill-tags">
+                        <span>Data Analysis</span><span>Web Development</span><span>Software Development</span><span>Debugging</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span>Problem-Solving</span><span>Collaboration</span><span>Communication</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span>English</span><span>Hindi</span><span>Malayalam</span><span>Tamil</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects hidden">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <div class="project-grid">
+                <div class="project-card glass-card">
+                    <img src="images/driver_drowsiness.png" alt="Driver Drowsiness Detection" class="project-bg">
+                    <div class="project-content">
+                        <h3>Driver Drowsiness Detection</h3>
+                        <p class="tech-stack">Python, OpenCV</p>
+                        <p>Designed a real-time alert system using computer vision techniques to detect drowsiness and prevent accidents.</p>
+                        <button class="btn btn-primary" id="driverDetailsBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.85rem; align-self: flex-start; z-index: 10;">View Details <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></button>
+                    </div>
+                </div>
+                <div class="project-card glass-card">
+                    <img src="images/air_pollution.png" alt="Air Pollution Monitoring" class="project-bg">
+                    <div class="project-content">
+                        <h3>Air Pollution Monitoring System</h3>
+                        <p class="tech-stack">Python, Raspberry Pi, GSM, Blynk</p>
+                        <p>Built an IoT-based environmental monitoring system for real-time air quality tracking and alert reporting.</p>
+                        <button class="btn btn-primary" id="airDetailsBtn" style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.85rem; align-self: flex-start; z-index: 10;">View Details <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></button>
+                    </div>
+                </div>
+                <div class="project-card glass-card">
+                    <img src="images/pizza_restaurant.png" alt="Pizza Restaurant" class="project-bg">
+                    <div class="project-content">
+                        <h3>Pizza Restaurant Website</h3>
+                        <p class="tech-stack">Web Development</p>
+                        <p>Developed a responsive website for a local pizza restaurant based in Hyderabad.</p>
+                        <a href="pizza_website/pizza.html" target="_blank" class="btn btn-primary" style="margin-top: 1.5rem; padding: 0.5rem 1.2rem; font-size: 0.85rem; align-self: flex-start;">Open Website <i class="fas fa-external-link-alt" style="margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+                <div class="project-card glass-card">
+                    <img src="images/spotify_clone.png" alt="Spotify Music App" class="project-bg">
+                    <div class="project-content">
+                        <h3>Spotify Music App</h3>
+                        <p class="tech-stack">Web Development</p>
+                        <p>Built a music streaming application featuring a modern UI and audio playback functionality.</p>
+                    </div>
+                </div>
+                <div class="project-card glass-card">
+                    <img src="images/lux_loom.png" alt="LUX LOOM" class="project-bg">
+                    <div class="project-content">
+                        <h3>LUX LOOM</h3>
+                        <p class="tech-stack">E-Commerce</p>
+                        <p>Developed an online boutique dress website for a shop named LUX LOOM, featuring a product catalog.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact hidden">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="contact-container glass-card">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bangalore, Karnataka</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 9633303070</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>mohammedmuzammildarkas@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/mohammed-muzammil-9a1a00332" target="_blank">LinkedIn Profile</a>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="4af58ac3-3419-49e1-b40f-8e67c49f0f20">
+
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Mohammed Muzammil D R. All rights reserved.</p>
+    </footer>
+
+    <!-- Air Pollution Monitoring System Modal -->
+    <div id="airModal" class="driver-modal">
+        <div class="driver-modal-content glass-card" style="max-width: 980px;">
+            <span class="driver-close-btn" id="airCloseBtn">&times;</span>
+            <div class="modal-header">
+                <h2>Air Pollution Monitoring System</h2>
+                <p class="tech-tags">
+                    <span>Python</span><span>Raspberry Pi</span><span>Gas Sensors</span>
+                    <span>GSM Module</span><span>Blynk App</span><span>IoT</span>
+                </p>
+            </div>
+
+            <div class="modal-grid" style="grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+                <!-- Left Column -->
+                <div class="modal-column">
+                    <h3><i class="fas fa-smog"></i> Overview</h3>
+                    <p>A real-time IoT-based air quality monitoring system that continuously reads atmospheric gas levels using dedicated sensors. When a dangerous gas concentration reaches or exceeds the safe threshold, the system immediately triggers an alert — sending SMS notifications directly to <strong>government officials</strong> and <strong>safety authorities</strong> via a GSM module, and simultaneously pushing live readings to the <strong>Blynk mobile app</strong> for remote monitoring.</p>
+
+                    <h3 style="margin-top:2rem;"><i class="fas fa-microchip"></i> Hardware Used</h3>
+                    <ul class="device-list">
+                        <li><strong><i class="fas fa-wind" style="color:var(--accent-1);margin-right:6px;"></i> MQ-Series Gas Sensors:</strong> Detect harmful gases like CO, CO₂, LPG, Smoke, and NH₃ in the atmosphere in real time.</li>
+                        <li><strong><i class="fas fa-broadcast-tower" style="color:var(--accent-2);margin-right:6px;"></i> GSM Module (SIM800L):</strong> Sends automated SMS alerts to pre-configured emergency contacts when thresholds are breached.</li>
+                        <li><strong><i class="fas fa-server" style="color:#10b981;margin-right:6px;"></i> Raspberry Pi:</strong> Central processing unit that runs the Python monitoring script, reads sensor data, and triggers alerts.</li>
+                        <li><strong><i class="fas fa-mobile-alt" style="color:#f59e0b;margin-right:6px;"></i> Blynk App:</strong> Provides a real-time mobile dashboard to visualize gas levels, historical graphs, and receive push notifications.</li>
+                    </ul>
+
+                    <h3 style="margin-top:2rem;"><i class="fas fa-code"></i> System Flow</h3>
+                    <div class="css-flowchart">
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-wind"></i></div>
+                            <div class="flow-text"><h4>1. Gas Detection</h4><p>MQ sensors continuously sample atmospheric gas concentrations and output analog voltage values.</p></div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="flow-text"><h4>2. Data Processing</h4><p>Raspberry Pi reads sensor values, converts them to PPM units, and compares against safety thresholds via Python.</p></div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="flow-text"><h4>3. Threshold Check</h4><p>If gas level exceeds the safe limit, the alert pipeline is triggered immediately.</p></div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-sms"></i></div>
+                            <div class="flow-text"><h4>4. SMS + App Alert</h4><p>GSM module sends SMS to authorities. Blynk app pushes a real-time notification with gas type and PPM level.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Demo -->
+                <div class="modal-column">
+                    <h3><i class="fas fa-flask"></i> Live Sensor Demo</h3>
+                    <p style="margin-bottom:1.5rem;">Simulate real-time gas monitoring. Drag the slider to change gas concentration and watch the system respond.</p>
+
+                    <div class="air-demo-box">
+                        <!-- Gauge -->
+                        <div class="gauge-wrap">
+                            <div class="gauge-label" id="gaugeGasName">CO (Carbon Monoxide)</div>
+                            <div class="gauge-track">
+                                <div class="gauge-fill" id="gaugeFill"></div>
+                                <div class="gauge-threshold" id="gaugeThreshold"></div>
+                            </div>
+                            <div class="gauge-values">
+                                <span>0 PPM</span>
+                                <span id="gaugePPM">0 PPM</span>
+                                <span id="gaugeMax">500 PPM</span>
+                            </div>
+                            <div class="gauge-status" id="gaugeStatus">✅ Safe Level</div>
+                        </div>
+
+                        <!-- Slider -->
+                        <div style="margin: 1.2rem 0;">
+                            <label style="font-weight:600; font-size:0.9rem; color:var(--text-muted); display:block; margin-bottom:0.5rem;">Adjust Gas Level:</label>
+                            <input type="range" id="gasSlider" min="0" max="500" value="50" class="gas-slider">
+                        </div>
+
+                        <!-- Gas Type Selector -->
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.2rem;">
+                            <button class="gas-btn active" data-gas="CO" data-threshold="200" data-max="500">CO</button>
+                            <button class="gas-btn" data-gas="CO₂" data-threshold="1000" data-max="3000">CO₂</button>
+                            <button class="gas-btn" data-gas="LPG" data-threshold="500" data-max="2000">LPG</button>
+                            <button class="gas-btn" data-gas="Smoke" data-threshold="150" data-max="400">Smoke</button>
+                            <button class="gas-btn" data-gas="NH₃" data-threshold="25" data-max="100">NH₃</button>
+                        </div>
+
+                        <!-- Alert Box -->
+                        <div class="alert-box" id="alertBox">
+                            <div class="alert-header"><i class="fas fa-exclamation-circle"></i> DANGER ALERT TRIGGERED!</div>
+                            <div class="alert-body">
+                                <div class="alert-sms"><i class="fas fa-sms"></i> SMS sent to Government Officials</div>
+                                <div class="alert-sms"><i class="fas fa-shield-alt"></i> SMS sent to Safety Authorities</div>
+                                <div class="alert-sms"><i class="fas fa-mobile-alt"></i> Blynk App Push Notification sent</div>
+                                <div id="alertMessage" class="alert-reading"></div>
+                            </div>
+                        </div>
+
+                        <!-- Safe box -->
+                        <div class="safe-box" id="safeBox">
+                            <i class="fas fa-check-circle"></i> System Active — All levels within safe range. Monitoring continuously...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Project Detail Modal -->
+    <div id="driverModal" class="driver-modal">
+        <div class="driver-modal-content glass-card">
+            <span class="driver-close-btn">&times;</span>
+            <div class="modal-header">
+                <h2>Driver Drowsiness Detection</h2>
+                <p class="tech-tags"><span>Python</span><span>OpenCV</span><span>Dlib</span><span>Computer Vision</span></p>
+            </div>
+            
+            <div class="modal-grid">
+                <div class="modal-column">
+                    <h3><i class="fas fa-shield-alt"></i> Overview</h3>
+                    <p>A computer vision-based safety system that continuously monitors a driver's face in real-time. By tracking facial landmarks and calculating the Eye Aspect Ratio (EAR), the system accurately detects signs of microsleep or severe fatigue, instantly triggering an alarm to wake the driver and prevent potential accidents.</p>
+                    
+                    <h3 style="margin-top: 2rem;"><i class="fas fa-microchip"></i> Devices & Hardware</h3>
+                    <ul class="device-list">
+                        <li><strong>HD Camera:</strong> Captures clear real-time video feed of the driver's face.</li>
+                        <li><strong>Processing Node:</strong> A local processing unit (Laptop/Raspberry Pi) to run the ML inference without latency.</li>
+                        <li><strong>Audio Alarm System:</strong> Triggers immediate high-frequency alerts.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-column">
+                    <h3><i class="fas fa-project-diagram"></i> System Flow Diagram</h3>
+                    <div class="css-flowchart">
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-video"></i></div>
+                            <div class="flow-text">
+                                <h4>1. Video Capture</h4>
+                                <p>Initialize webcam feed and capture continuous frames.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-user-bounding-box"></i></div>
+                            <div class="flow-text">
+                                <h4>2. Face Detection</h4>
+                                <p>Isolate the driver's face using HOG detectors.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-eye"></i></div>
+                            <div class="flow-text">
+                                <h4>3. Landmark Extraction</h4>
+                                <p>Map specific facial points to locate the exact contours of both eyes.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-icon"><i class="fas fa-calculator"></i></div>
+                            <div class="flow-text">
+                                <h4>4. EAR Calculation</h4>
+                                <p>Compute the Eye Aspect Ratio. If EAR falls below the threshold for consecutive frames, trigger the alarm.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
