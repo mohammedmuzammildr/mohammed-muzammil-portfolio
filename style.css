@@ -14,6 +14,10 @@
 
 
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -63,11 +67,7 @@ h1, h2, h3, h4 {
 
 
 
-.highlight {
-    font-style: italic;
-    font-family: var(--font-serif);
-    color: inherit;
-}
+
 
 .section-title {
     font-size: 2.5rem;
@@ -411,11 +411,13 @@ section {
 }
 
 .about-lead {
-    font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.6;
     margin-bottom: 2rem;
-    color: var(--text-muted);
+    color: var(--text-main);
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 
@@ -427,12 +429,12 @@ section {
 }
 
 .split-header h3 {
-    font-family: 'Bodoni Moda', serif;
+    font-family: var(--font-serif);
     font-size: 2.2rem;
     text-transform: none;
-    letter-spacing: normal;
+    letter-spacing: -0.02em;
     color: var(--text-main);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.1;
     margin-bottom: 2rem;
 }
@@ -1442,8 +1444,9 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
 /* --- Smooth Animations --- */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
 }
 
 .reveal.show {
