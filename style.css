@@ -12,6 +12,16 @@
     --font-sans: 'Montserrat', sans-serif;
 }
 
+body.dark-mode {
+    --bg-main: #1c1c1e; /* Sophisticated dark grey */
+    --bg-sec: #2c2c2e;
+    --text-main: #fdfcfb;
+    --text-sec: #fdfcfb;
+    --text-muted: #a1a1a6;
+    --text-light: #666666;
+    --accent: #fdfcfb;
+    --border: #333336;
+}
 
 
 html {
@@ -167,30 +177,21 @@ h1, h2, h3, h4 {
     background: none;
     border: none;
     cursor: pointer;
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 1.2rem;
     color: var(--text-main);
-    padding: 0.5rem 0;
+    padding: 0.5rem;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.theme-toggle:hover {
+    transform: rotate(-15deg);
+    color: var(--text-muted);
 }
 
-.theme-toggle::after {
-    content: "";
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%; height: 1px;
-    background: var(--text-main);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.4s ease;
-}
 
-.theme-toggle:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
 
 .hamburger {
     display: none;
