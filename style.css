@@ -15,7 +15,7 @@
 
 
 html {
-    scroll-behavior: smooth;
+    /* Lenis handles smooth scrolling natively via JS */
 }
 
 * {
