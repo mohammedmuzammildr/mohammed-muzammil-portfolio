@@ -5,7 +5,7 @@
         <a href="#">Menu</a>
         <a href="#">About</a>
         <a href="#">Services</a> 
-        <a href="#Contact">Contact</a>
+        <a href="#">Contact</a>
         <button onclick="toggleDarkMode()"><i class="fa-solid fa-circle-half-stroke"></i></button>
      </div>
     <meta charset="UTF-8">
@@ -65,81 +65,10 @@
     <p class="foodorder"> Your Orders</p>
 
 
-    <section id="Contact" data-aos="fade-up" data-aos-duration="1500">
-        <h2>Contact Us</h2>
-        <form id="pizzaContactForm" class="contact-form">
-            <input type="hidden" name="access_key" value="4af58ac3-3419-49e1-b40f-8e67c49f0f20">
-            <input type="hidden" name="subject" value="New Inquiry from Pizza Website">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Pizza Detail Modal -->
-    <div id="pizzaModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div class="modal-body">
-                <img id="modalImg" src="" alt="Pizza">
-                <div class="modal-info">
-                    <h2 id="modalTitle">Pizza Name</h2>
-                    <p id="modalPrice" class="price">Price</p>
-                    <p id="modalDesc">Detailed description of the pizza.</p>
-                    <button id="modalBuyBtn" class="Buy" style="width: 100%;">Add to Order</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="pizza.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init();
-
-  const pizzaForm = document.getElementById('pizzaContactForm');
-  if(pizzaForm) {
-      pizzaForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const btn = pizzaForm.querySelector('button');
-          const originalText = btn.textContent;
-          btn.textContent = 'Sending...';
-          
-          const formData = new FormData(pizzaForm);
-          const object = Object.fromEntries(formData);
-          const json = JSON.stringify(object);
-
-          fetch('https://api.web3forms.com/submit', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json'
-              },
-              body: json
-          })
-          .then(async (response) => {
-              if (response.status == 200) {
-                  btn.textContent = 'Message Sent!';
-                  btn.style.backgroundColor = '#10b981';
-                  btn.style.color = 'white';
-                  pizzaForm.reset();
-              } else {
-                  btn.textContent = 'Error!';
-              }
-          })
-          .catch(error => {
-              btn.textContent = 'Error!';
-          })
-          .then(() => {
-              setTimeout(() => {
-                  btn.textContent = originalText;
-                  btn.style.backgroundColor = 'rgb(243, 170, 35)';
-                  btn.style.color = 'black';
-              }, 4000);
-          });
-      });
-  }
 </script>
 </body>
 </html>

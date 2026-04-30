@@ -15,101 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-            // Re-init canvas so colors match the new theme
-            initCanvas();
         });
     }
-
-    // ── Techy Particle Canvas Background ──────────────────────
-    const canvas = document.getElementById('heroCanvas');
-    let animFrame;
-
-    function initCanvas() {
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const isDark = document.body.classList.contains('dark-mode');
-
-        // Colors based on theme
-        const particleColor = isDark ? 'rgba(59,130,246,0.7)' : 'rgba(59,130,246,0.5)';
-        const lineColor     = isDark ? 'rgba(139,92,246,0.2)'  : 'rgba(59,130,246,0.12)';
-        const bgColor       = isDark ? '#0d1117'                : '#f0f4f8';
-
-        // Size canvas to section
-        const resize = () => {
-            canvas.width  = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-        };
-        resize();
-        window.addEventListener('resize', resize);
-
-        // Particle setup
-        const NUM = Math.min(Math.floor(canvas.width / 12), 90);
-        const MAX_DIST = 150;
-        const particles = [];
-
-        for (let i = 0; i < NUM; i++) {
-            particles.push({
-                x:  Math.random() * canvas.width,
-                y:  Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.6,
-                vy: (Math.random() - 0.5) * 0.6,
-                r:  Math.random() * 2 + 1.5,
-            });
-        }
-
-        // Cancel any previous loop
-        if (animFrame) cancelAnimationFrame(animFrame);
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Move & draw particles
-            for (let p of particles) {
-                p.x += p.vx;
-                p.y += p.vy;
-                if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = particleColor;
-                ctx.fill();
-            }
-
-            // Draw connecting lines
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx   = particles[i].x - particles[j].x;
-                    const dy   = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < MAX_DIST) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = lineColor;
-                        ctx.lineWidth   = 1 - dist / MAX_DIST;
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            animFrame = requestAnimationFrame(draw);
-        }
-
-        draw();
-    }
-
-    initCanvas();
 
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        // Animate hamburger lines
-        hamburger.classList.toggle('toggle');
-    });
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    }
 
     // Close mobile nav when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -138,13 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                observer.unobserve(entry.target); // Optional: only animate once
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => {
+        observer.observe(el);
+    });
 
     // Form submission handling via Web3Forms API
     const contactForm = document.getElementById('contactForm');
@@ -174,62 +94,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 let json = await response.json();
                 if (response.status == 200) {
                     btn.textContent = 'Message Sent!';
-                    btn.style.background = '#10b981';
+                    btn.style.color = '#10b981';
                     contactForm.reset();
                 } else {
-                    console.log(response);
-                    btn.textContent = 'Error! Check Key.';
-                    btn.style.background = '#ef4444';
+                    btn.textContent = 'Error! Try Again.';
+                    btn.style.color = '#ef4444';
                 }
             })
             .catch(error => {
-                console.log(error);
                 btn.textContent = 'Error! Try Again.';
-                btn.style.background = '#ef4444';
+                btn.style.color = '#ef4444';
             })
             .then(function() {
                 setTimeout(() => {
                     btn.textContent = originalText;
-                    btn.style.background = '';
+                    btn.style.color = '';
                     btn.style.opacity = '1';
                 }, 4000);
             });
         });
     }
 
-    // Premium Driver Drowsiness Modal Logic
-    const driverDetailsBtn = document.getElementById('driverDetailsBtn');
-    const driverModal = document.getElementById('driverModal');
-    const driverCloseBtn = document.querySelector('.driver-close-btn');
+    // Modal Handling Helper
+    function setupModal(triggerId, modalId, closeId) {
+        const trigger = document.getElementById(triggerId);
+        const modal = document.getElementById(modalId);
+        const close = document.getElementById(closeId);
 
-    if(driverDetailsBtn && driverModal && driverCloseBtn) {
-        driverDetailsBtn.addEventListener('click', () => {
-            driverModal.style.display = 'block';
+        if (!trigger || !modal || !close) return;
+
+        trigger.addEventListener('click', () => {
+            modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         });
-        driverCloseBtn.addEventListener('click', () => {
-            driverModal.style.display = 'none';
+
+        const closeModal = () => {
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        });
-        window.addEventListener('click', (e) => {
-            if (e.target == driverModal) {
-                driverModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            if (modalId === 'airModal' && beepInterval) {
+                clearInterval(beepInterval);
+                beepInterval = null;
             }
+        };
+
+        close.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
     }
 
-    // ── Air Pollution Modal ──────────────────────────────────
-    const airDetailsBtn  = document.getElementById('airDetailsBtn');
-    const airModal       = document.getElementById('airModal');
-    const airCloseBtn    = document.getElementById('airCloseBtn');
-
-    function openAirModal()  { airModal.style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function closeAirModal() { airModal.style.display = 'none';  document.body.style.overflow = 'auto'; }
-
-    if (airDetailsBtn) airDetailsBtn.addEventListener('click', openAirModal);
-    if (airCloseBtn)   airCloseBtn.addEventListener('click', closeAirModal);
-    window.addEventListener('click', (e) => { if (e.target === airModal) closeAirModal(); });
+    setupModal('driverDetailsBtn', 'driverModal', 'driverCloseBtn');
+    setupModal('airDetailsBtn', 'airModal', 'airCloseBtn');
 
     // ── Gas Sensor Live Demo ─────────────────────────────────
     const gasSlider     = document.getElementById('gasSlider');
@@ -241,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const gaugeGasName  = document.getElementById('gaugeGasName');
     const alertBox      = document.getElementById('alertBox');
     const alertMessage  = document.getElementById('alertMessage');
-    const safeBox       = document.getElementById('safeBox');
     const gasBtns       = document.querySelectorAll('.gas-btn');
 
     const gasNames = {
@@ -257,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentGas       = 'CO';
     let beepInterval     = null;
 
-    // Beep sound function using Web Audio API
     function playBeep() {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioCtx.createOscillator();
@@ -267,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gainNode.connect(audioCtx.destination);
 
         oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 note
+        oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); 
         gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
         gainNode.gain.linearRampToValueAtTime(0.1, audioCtx.currentTime + 0.05);
         gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.3);
@@ -286,26 +199,18 @@ document.addEventListener('DOMContentLoaded', () => {
         gaugePPM.textContent             = val + ' PPM';
 
         if (isDanger) {
-            gaugeFill.classList.add('danger');
-            gaugeStatus.classList.add('danger');
-            gaugeStatus.textContent = '🚨 DANGER — Threshold Exceeded!';
+            gaugeStatus.textContent = 'Status: Danger';
             alertBox.classList.add('show');
-            safeBox.classList.add('hidden-safe');
-            alertMessage.textContent = `⚠ ${currentGas} level: ${val} PPM — Threshold: ${currentThreshold} PPM`;
+            alertMessage.textContent = `${currentGas} level critical: ${val} PPM`;
             
-            // Start beeping if not already beeping
             if (!beepInterval) {
-                playBeep(); // Play immediately
-                beepInterval = setInterval(playBeep, 1500); // Repeat every 1.5s
+                playBeep();
+                beepInterval = setInterval(playBeep, 1500);
             }
         } else {
-            gaugeFill.classList.remove('danger');
-            gaugeStatus.classList.remove('danger');
-            gaugeStatus.textContent = '✅ Safe Level';
+            gaugeStatus.textContent = 'Status: Safe';
             alertBox.classList.remove('show');
-            safeBox.classList.remove('hidden-safe');
             
-            // Stop beeping
             if (beepInterval) {
                 clearInterval(beepInterval);
                 beepInterval = null;
@@ -337,10 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialise demo state
     if (gaugeMax) {
         gaugeMax.textContent = '500 PPM';
         updateGaugeDemo(50);
     }
-
 });
+
