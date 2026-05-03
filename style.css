@@ -6,6 +6,8 @@
     --text-muted: #555555;
     --text-light: #999999;
     --accent: #1a1a1a;
+    --accent-1: #1a1a1a;
+    --accent-2: #555555;
     --border: #dfdfdf;
     --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     --font-serif: 'Bodoni Moda', serif;
@@ -20,6 +22,8 @@ body.dark-mode {
     --text-muted: #a1a1a6;
     --text-light: #666666;
     --accent: #fdfcfb;
+    --accent-1: #fdfcfb;
+    --accent-2: #a1a1a6;
     --border: #333336;
 }
 
@@ -389,15 +393,15 @@ section {
     align-items: center;
     width: 80px;
     height: 80px;
-    background: #ffffff;
+    background: var(--bg-main);
     border-radius: 50%;
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .about-card h4 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #0f172a;
+    color: var(--text-main);
 }
 
 .card-org {
@@ -990,7 +994,7 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: white;
+    background: var(--bg-main);
     border: 3px solid var(--accent-1);
     box-shadow: 0 2px 8px rgba(59,130,246,0.3);
     cursor: pointer;
@@ -1011,8 +1015,8 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
 }
 .gas-btn:hover { border-color: var(--accent-1); color: var(--accent-1); }
 .gas-btn.active {
-    background: var(--accent-gradient);
-    color: white;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    color: var(--text-sec);
     border-color: transparent;
     box-shadow: 0 3px 10px rgba(59,130,246,0.25);
 }
@@ -1030,7 +1034,7 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
 }
 .alert-header {
     background: linear-gradient(135deg, #ef4444, #dc2626);
-    color: white;
+    color: var(--text-sec);
     padding: 0.8rem 1.2rem;
     font-weight: 800;
     font-size: 0.95rem;
