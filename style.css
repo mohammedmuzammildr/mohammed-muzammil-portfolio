@@ -1282,9 +1282,11 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
         font-size: 1rem;
     }
     .driver-close-btn {
-        font-size: 26px;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
         top: 1rem;
-        right: 1.2rem;
+        right: 1rem;
     }
 }
 
@@ -1334,6 +1336,19 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
     backdrop-filter: blur(12px);
     overflow-y: auto;
     padding: 2rem 1rem;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-1) var(--bg-main);
+}
+.driver-modal::-webkit-scrollbar {
+    width: 8px;
+}
+.driver-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+.driver-modal::-webkit-scrollbar-thumb {
+    background-color: var(--accent-1);
+    border-radius: 10px;
 }
 .driver-modal-content {
     background: var(--bg-main);
@@ -1350,21 +1365,31 @@ body.dark-mode .gauge-track { background: rgba(255,255,255,0.06); }
 .driver-close-btn {
     position: absolute;
     top: 1.5rem;
-    right: 2rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-sec);
     color: var(--text-main);
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
+    border: 1px solid var(--border);
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 .driver-close-btn:hover {
-    color: var(--text-light);
+    background: var(--text-main);
+    color: var(--bg-main);
+    transform: rotate(90deg);
 }
 .modal-header {
     text-align: center;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
+    padding-top: 1.5rem;
     border-bottom: 1px solid var(--border);
 }
 .modal-header h2 {
