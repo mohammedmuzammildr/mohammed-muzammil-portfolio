@@ -154,6 +154,21 @@
                 <div class="project-grid">
                     <div class="project-card">
                         <div class="project-image">
+                            <img src="images/beechabite.png" alt="Beecha Bite Artisanal Honey Nuts Store">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Python / Django / Full Stack</span>
+                            <h4 class="project-name">Beecha Bite</h4>
+                            <p class="project-description">Artisanal honey mixed nuts e-commerce platform with interactive jar customizer, server-side verified checkout, and role-based staff operations.</p>
+                            <div style="display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:1.5rem;">
+                                <button class="project-btn" id="beechaDetailsBtn">Details +</button>
+                                <a href="https://beechabite.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">Live Demo <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
                             <img src="images/driver_drowsiness.png" alt="Driver Drowsiness Detection">
                         </div>
                         <div class="project-info">
@@ -372,6 +387,75 @@
                                 <p>Instant visual and auditory alerts triggered within 1.5 seconds of detected eye closure.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beecha Bite Modal -->
+    <div id="beechaModal" class="driver-modal" data-lenis-prevent>
+        <div class="driver-modal-content">
+            <button class="driver-close-btn" id="beechaCloseBtn"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2 class="hero-title">Beecha Bite</h2>
+                <div class="tech-tags">
+                    <span>Python</span><span>Django</span><span>PostgreSQL</span><span>JavaScript</span><span>Vercel</span><span>REST API</span>
+                </div>
+            </div>
+
+            <div class="modal-grid">
+                <div class="modal-column">
+                    <h3>Overview</h3>
+                    <p>Beecha Bite is a full-stack artisanal honey and nuts e-commerce platform. It features an interactive SVG jar customizer where customers craft bespoke blends in real-time with automated portion control, live nutrition/ingredient calculation, and tamper-proof server-side pricing.</p>
+
+                    <h3 style="margin-top:4rem;">Key Highlights</h3>
+                    <ul class="device-list">
+                        <li>
+                            <strong>Interactive Jar Customizer</strong>
+                            Visual real-time SVG layer stacking allowing customers to choose nuts, honey varieties, finishing touches, and jar sizes.
+                        </li>
+                        <li>
+                            <strong>Staff & Order Operations Portal</strong>
+                            Role-based internal dashboard (Owner vs Staff) for order processing, status pipelines, internal staff notes, delivery updates, and coupon management.
+                        </li>
+                        <li>
+                            <strong>Tamper-Proof Checkout API</strong>
+                            Server-side price calculation and validation directly from Django models, protecting against client-side price tampering.
+                        </li>
+                        <li>
+                            <strong>Serverless Cloud Deployment</strong>
+                            Engineered for zero-downtime deployment on Vercel with automated migration and static asset optimization.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="modal-column">
+                    <h3>Architecture & Stack</h3>
+                    <div class="css-flowchart">
+                        <div class="flow-step">
+                            <div class="flow-text">
+                                <h4>1. Storefront & Real-time Customizer</h4>
+                                <p>Dynamic frontend featuring responsive mobile bottom navigation, live SVG jar graphics, and instant bag calculations.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-text">
+                                <h4>2. Django Backend & Secure API</h4>
+                                <p>RESTful order quote and creation endpoints with server-enforced pricing, rate limiting, and CSRF protection.</p>
+                            </div>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-text">
+                                <h4>3. Operational Staff Suite</h4>
+                                <p>Authenticated staff dashboard with status transition audit logs, delivery & GST settings, and team access control.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://beechabite.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn" style="text-decoration:none;">Visit Live Store <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/mohammedmuzammildr/beechabite" target="_blank" rel="noopener noreferrer" class="project-btn" style="text-decoration:none;">View GitHub Repo <i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>

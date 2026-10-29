@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    setupModal('beechaDetailsBtn', 'beechaModal', 'beechaCloseBtn');
     setupModal('driverDetailsBtn', 'driverModal', 'driverCloseBtn');
     setupModal('airDetailsBtn', 'airModal', 'airCloseBtn');
 
